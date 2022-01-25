@@ -5,12 +5,10 @@ import RepositoryList from './components/RepositoryList';
 
 import store from './store';
 
-function App() {
-  return (
-    <Provider store={store}>
-      <RepositoryList />
-    </Provider>
-  );
-}
+const App = () => (
+  <Provider store={store}>
+    <RepositoryList />
+  </Provider>
+);
 
 export default App;

@@ -19,7 +19,7 @@ export interface Repository {
  * State type
  */
 export interface RepositoriesState {
-  readonly data: Repository[];
+  readonly data: any[];
   readonly loading: boolean;
   readonly error: boolean;
 }

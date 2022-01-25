@@ -1,6 +1,7 @@
 import { all, takeLatest } from 'redux-saga/effects';
+
+import { RepositoriesState, RepositoriesTypes } from './repositories/types';
 import { load } from './repositories/sagas';
-import { RepositoriesTypes, RepositoriesState } from './repositories/types';
 
 export default function* rootSaga() {
   const response: RepositoriesState = yield all([

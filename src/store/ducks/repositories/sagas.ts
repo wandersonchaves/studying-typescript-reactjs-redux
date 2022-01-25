@@ -1,14 +1,13 @@
 import { call, put } from 'redux-saga/effects';
-import { RepositoriesState } from './types';
-import { loadFailure, loadSuccess } from './actions';
 import api from '../../../services/api';
+
+import { loadSuccess, loadFailure } from './actions';
+import { RepositoriesState } from './types';
+
 
 export function* load() {
   try {
-    const response: RepositoriesState = yield call(
-      api.get,
-      'users/diego3g/repos',
-    );
+    const response:RepositoriesState = yield call(api.get, 'users/wandersonchaves/repos');
 
     yield put(loadSuccess(response.data));
   } catch (err) {

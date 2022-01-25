@@ -7,15 +7,17 @@ import { ApplicationState } from '../../store';
 
 import * as RepositoriesActions from '../../store/ducks/repositories/actions';
 
+import RepositoryItem from '../RepositoryItem';
+
 interface StateProps {
-  repositories: Repository[]
+  repositories: Repository[];
 }
 
 interface DispatchProps {
-  loadRequest(): void
+  loadRequest(): void;
 }
 
-type Props = StateProps & DispatchProps
+type Props = StateProps & DispatchProps;
 
 class RepositoryList extends Component<Props> {
   componentDidMount() {
@@ -27,7 +29,13 @@ class RepositoryList extends Component<Props> {
   render() {
     const { repositories } = this.props;
 
-    return <ul>{repositories.map((repository) => repository.name)}</ul>;
+    return (
+      <ul>
+        {repositories.map(repository => (
+          <RepositoryItem key={repository.id} repository={repository} />
+        ))}
+      </ul>
+    );
   }
 }
 
